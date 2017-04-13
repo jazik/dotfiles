@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'scrooloose/nerdtree'
 "" Plugin 'pangloss/vim-javascript'
 "" Plugin 'nathanaelkane/vim-indent-guides'
 "" Plugin 'scrooloose/syntastic'
