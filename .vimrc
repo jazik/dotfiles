@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
