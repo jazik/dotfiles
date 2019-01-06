@@ -12,10 +12,12 @@ sudo dnf install -y vim zsh tmux util-linux-user
 
 
 if [ -d ~/.vim/bundle/Vundle.vim ]; then
-    git -C ~/.vim/bundle/Vundle.vim update
+    git -C ~/.vim/bundle/Vundle.vim pull
 else
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
+cp $DIR/.vimrc ~/.
+vim +PluginInstall +qall
 
 
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -24,13 +26,12 @@ fi
 sed -i -e 's/^# export PATH/export PATH/' ~/.zshrc
 
 
-cp $DIR/.vimrc ~/.
 cp $DIR/.tmux.conf ~/. 
 #cp $DIR/.zshrc ~/.
 
 
 if [ -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
-    git -C ~/.oh-my-zsh/custom/themes/powerlevel9k update
+    git -C ~/.oh-my-zsh/custom/themes/powerlevel9k pull
 else
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
     cat $DIR/.zshrc.add >> ~/.zshrc
@@ -45,11 +46,14 @@ mkdir -p ~/.config/fontconfig/conf.d
 
 
 # https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
-wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-mv PowerlineSymbols.otf ~/.local/share/fonts/powerline/.
-fc-cache -v
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+if [ ! -f ~/.local/share/fonts/powerline/PowerlineSymbols.otf ]; then
+    wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+    wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+    mv PowerlineSymbols.otf ~/.local/share/fonts/powerline/.
+    fc-cache -v
+    mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+fi
 
 
 chsh -s /usr/bin/zsh
+
