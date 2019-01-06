@@ -16,7 +16,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 set rtp+=/usr/bin
 Plugin 'junegunn/fzf.vim'
-Plugin 'itchyny/lightline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
  
@@ -39,3 +39,6 @@ Plugin 'w0rp/ale'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+set laststatus=2
+set noshowmode
