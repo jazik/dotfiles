@@ -8,7 +8,7 @@ if [ ! $? -eq 0 ]; then
 	sudo sh -c 'echo -e "fastestmirror=1" >> /etc/dnf/dnf.conf'
 fi
 sudo dnf update -y
-sudo dnf install -y vim zsh tmux util-linux-user
+sudo dnf install -y vim zsh tmux util-linux-user fzf
 
 
 if [ -d ~/.vim/bundle/Vundle.vim ]; then

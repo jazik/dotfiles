@@ -11,6 +11,14 @@ Plugin 'scrooloose/nerdtree'
 "" Plugin 'pangloss/vim-javascript'
 "" Plugin 'nathanaelkane/vim-indent-guides'
 "" Plugin 'scrooloose/syntastic'
+
+" https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9
+Plugin 'junegunn/fzf'
+set rtp+=/usr/bin
+Plugin 'junegunn/fzf.vim'
+Plugin 'itchyny/lightline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'w0rp/ale'
  
 " This does what it says on the tin. It will check your file on open too, not
 " just on save.
