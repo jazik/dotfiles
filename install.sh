@@ -10,6 +10,7 @@ fi
 sudo dnf update -y
 sudo dnf install -y vim zsh tmux util-linux-user fzf
 
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 if [ -d ~/.vim/bundle/Vundle.vim ]; then
     git -C ~/.vim/bundle/Vundle.vim pull
@@ -23,7 +24,7 @@ vim +PluginInstall +qall
 if [ ! -d ~/.oh-my-zsh ]; then
     wget http://install.ohmyz.sh -O - | sh
 fi
-sed -i -e 's/^# export PATH/export PATH/' ~/.zshrc
+sed -i -e 's/^# export PATH=/export PATH=\/usr\/bin:/' ~/.zshrc
 
 
 cp $DIR/.tmux.conf ~/. 
