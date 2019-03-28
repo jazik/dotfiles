@@ -9,7 +9,7 @@ if [ ! $? -eq 0 ]; then
 	sudo sh -c 'echo -e "fastestmirror=1" >> /etc/dnf/dnf.conf'
 fi
 sudo dnf update -y
-sudo dnf install -y vim zsh tmux util-linux-user fzf gnome-tweaks
+sudo dnf install -y vim zsh tmux util-linux-user fzf gnome-tweaks gvfs-nfs
 
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
