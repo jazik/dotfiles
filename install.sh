@@ -1,16 +1,17 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+set -x
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 grep -q "fastestmirror=1" /etc/dnf/dnf.conf
 if [ ! $? -eq 0 ]; then
 	sudo sh -c 'echo -e "fastestmirror=1" >> /etc/dnf/dnf.conf'
 fi
 sudo dnf update -y
-sudo dnf install -y vim zsh tmux util-linux-user fzf
+sudo dnf install -y vim zsh tmux util-linux-user fzf gnome-tweaks gvfs-nfs
 
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 if [ -d ~/.vim/bundle/Vundle.vim ]; then
     git -C ~/.vim/bundle/Vundle.vim pull
@@ -21,14 +22,12 @@ cp $DIR/.vimrc ~/.
 vim +PluginInstall +qall
 
 
-if [ ! -d ~/.oh-my-zsh ]; then
-    wget http://install.ohmyz.sh -O - | sh
-fi
+rm -Rf ~/.oh-my-zsh 
+wget http://install.ohmyz.sh -O - | sh
 sed -i -e 's/^# export PATH=/export PATH=\/usr\/bin:/' ~/.zshrc
 
 
 cp $DIR/.tmux.conf ~/. 
-#cp $DIR/.zshrc ~/.
 
 
 if [ -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
