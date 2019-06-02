@@ -1,0 +1,38 @@
+# Links
+
+## K8 and minikube
+
+https://github.com/kubernetes-sigs/kubespray
+https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#kvm2-driver
+https://kubernetes.io/docs/tasks/tools/install-kubectl/
+https://github.com/kubernetes/minikube#other-ways-to-install
+https://stackoverflow.com/questions/42356861/can-i-use-autocompletion-for-kubectl-in-zsh
+https://stackoverflow.com/questions/38870277/how-do-i-ssh-into-the-vm-for-minikube
+https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell
+http://blog.arungupta.me/show-layers-of-docker-image/
+https://www.netguru.com/codestories/nginx-tutorial-basics-concepts
+https://kubernetes.io/docs/setup/minikube/
+
+## Helm
+
+https://helm.sh/docs/using_helm/#quickstart
+https://helm.sh/docs/using_helm/#installing-helm
+
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+helm init
+
+https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart/
+
+
+## Flanel
+
+https://github.com/coreos/flannel#flannel
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
+# Run
+
+minikube start --vm-driver kvm2
+source <(kubectl completion zsh)
+
+
