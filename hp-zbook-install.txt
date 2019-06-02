@@ -1,0 +1,3 @@
+- install NVIDIA drivers
+- disable dithering
+- load the nvidia configs after reboots
